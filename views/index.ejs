@@ -1,0 +1,93 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group</title>
+  <style>
+    body {
+      background-color: #b0c4de; 
+    }
+    .group-block {
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .group-A {
+      background-color: #f0f8ff; 
+    }
+    .group-B {
+      background-color: #f5f5dc; 
+    }
+    .group-C {
+      background-color: #e6e6fa; 
+    }
+    .total-count {
+      background-color: #d3ffd3; 
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    h1, h2 {
+      color: #491996;
+    }
+    button {
+      background-color:#305e92; 
+      color: white;
+      font-size: 16px; 
+      cursor: pointer; 
+    }
+    button:hover {
+      background-color: #45a049; 
+    }
+  </style>
+</head>
+
+<body>
+    <h1>グループ分け</h1>
+    <h2>各グループの状態</h2>
+    <div class="group-block group-A">
+    <h3>A:</h3>
+    <ul>
+        <% group.A.forEach((name) => { %>
+            <li><%= name %></li>
+        <% }); %>
+    </ul>
+    <p>人数: <%= group.A.length %></p>
+  </div>
+
+  <div class="group-block group-B">
+    <h3>B:</h3>
+    <ul>
+        <% group.B.forEach((name) => { %>
+            <li><%= name %></li>
+        <% }); %>
+    </ul>
+    <p>人数: <%= group.B.length %></p>
+  </div>
+
+  <div class="group-block group-C">
+    <h3>C:</h3>
+    <ul>
+        <% group.C.forEach((name) => { %>
+            <li><%= name %></li>
+        <% }); %>
+    </ul>
+    <p>人数: <%= group.C.length %></p>
+  </div>
+
+  <p class="total-count">総合人数: <%= group.A.length + group.B.length + group.C.length %></p>
+
+    <label>グループ名：</label>
+    <input type="text" class="input-text-group" />
+    <label>名前：</label>
+    <input type="text" class="input-text-name" />
+
+    <button class="send-button">送信</button>
+  <script src="/static/index.js" defer></script>
+</body>
+
+</html>
